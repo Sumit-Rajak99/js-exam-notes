@@ -1,0 +1,350 @@
+JavaScript string ek data type hota hai jo characters ko store karta hai — letters, numbers, symbols, spaces sab string me aasakte hain.
+
+Example:
+
+let name = "Sumit";
+let city = 'Bhopal';
+let message = `Hello World`;
+
+✅ STRING KYA HOTI HAI (THEORY — Exam ke liye Perfect)
+1. Definition
+
+String ek sequence of characters hota hai jo quotes me likha jata hai.
+Quotes ke 3 types →
+
+"Double quotes"
+
+'Single quotes'
+
+Backticks (template string)
+
+2. JavaScript me string immutable hoti hai
+
+String change nahi hoti, balki new string create hoti hai.
+
+Example:
+
+let s = "hello";
+s[0] = "H";   // ❌ change nahi hota
+
+3. String Length
+let s = "Hello";
+console.log(s.length);   // 5
+
+4. String Methods
+
+Exam me puchne wale important methods ↓
+
+Method	Use
+toUpperCase()	string ko uppercase me badalta hai
+toLowerCase()	lowercase me badalta hai
+trim()	aage–peeche ke space hatata hai
+slice(start,end)	substring nikalta hai
+substring(start,end)	substring nikalta hai
+replace(a,b)	text replace karta hai
+includes("word")	check karta hai word present hai ya nahi
+split(" ")	string ko array me todta hai
+✅ STRING EXAMPLES (Practical — Exam ke liye zaroor)
+Example 1: Uppercase/Lowercase
+let name = "sumit";
+console.log(name.toUpperCase()); // SUMIT
+
+Example 2: Trim
+let x = "   hello   ";
+console.log(x.trim()); // "hello"
+
+Example 3: Slice
+let s = "JavaScript";
+console.log(s.slice(0,4)); // "Java"
+
+Example 4: Replace
+let text = "I love JavaScript";
+console.log(text.replace("love", "like"));
+
+Example 5: Split
+let s = "apple,banana,grapes";
+console.log(s.split(","));  
+// ["apple", "banana", "grapes"]
+
+📚 Exam Important Theory Questions
+Q1. String kya hoti hai?
+
+String ek sequence of characters hota hai jo quotes me likha jata hai.
+
+Q2. JavaScript me string immutable kyun hoti hai?
+
+Because change karne par new string ban jati hai.
+
+Q3. String length kaise find karte hai?
+
+.length property se.
+
+Q4. Template literal kya hota hai?
+
+Backticks (`) me likhi huwa string jisme variable use kar sakte hain.
+
+Example:
+
+let name = "Sumit";
+console.log(`My name is ${name}`);
+
+📝 Kya aapko String ke aur practical questions chahiye?
+
+MCQ, gap-fill, coding practice, ya viva questions?
+
+You said:
+ha
+ChatGPT said:
+
+Great! Neeche STRING ke THEORY + MCQ + CODING + VIVA questions sab de diya hain — exam ke liye 100% useful.
+
+📘 THEORY QUESTIONS (Short + Long)
+Q1. JavaScript me string kya hoti hai?
+
+String ek sequence of characters hota hai jo quotes (" ") me likha jata hai.
+
+Q2. JavaScript me string immutable kyun hoti hai?
+
+Kyuki string ko directly modify nahi kar sakte. Change karne par JavaScript new string return karta hai.
+
+Q3. String ke 3 types of quotes ka naam batao.
+
+"Double quotes"
+
+'Single quotes'
+
+`Backticks` (template literals)
+
+Q4. Template literal kya hota hai?
+
+Backtick me likhi string jisme ${variable} use kar sakte ho.
+
+📕 MCQ QUESTIONS (Exam me aate hain)
+1. Which of the following is a valid string?
+
+A. hello
+B. "hello"
+C. 12 + 5
+D. 12
+
+✔ Answer: B
+
+2. What is the output?
+console.log("JavaScript".length);
+
+
+A. 9
+B. 10
+C. 11
+D. 5
+
+✔ Answer: B (10)
+
+3. Which method converts text into uppercase?
+
+A. up()
+B. upperCase()
+C. toUpperCase()
+D. convertUpper()
+
+✔ Answer: C
+
+4. Output?
+console.log(" Hello ".trim());
+
+
+A. " Hello "
+B. "Hello"
+C. " Hello"
+D. "Hello "
+
+✔ Answer: B
+
+5. What does split() return?
+
+A. Number
+B. Object
+C. Array
+D. String
+
+✔ Answer: C
+
+🧪 PRACTICAL CODING QUESTIONS
+Q1. Write a program to convert a string to uppercase.
+let name = "sumit";
+console.log(name.toUpperCase());
+
+Q2. Write a program to find the length of a string.
+let str = "JavaScript";
+console.log(str.length);
+
+Q3. Write code to extract first 4 characters from “Programming”.
+let s = "Programming";
+console.log(s.slice(0,4));  // Prog
+
+Q4. Write a program to replace "bad" with "good".
+let text = "This is bad";
+console.log(text.replace("bad", "good"));
+
+Q5. Write code to split a sentence into words.
+let sentence = "I love coding";
+console.log(sentence.split(" "));
+
+🎤 VIVA / ORAL QUESTIONS
+1. String me uppercase kaise karte hai?
+
+→ toUpperCase() method se.
+
+2. “immutable” ka matlab kya hota hai?
+
+→ Jo change nahi ho sakti.
+
+3. .length property kya return karti hai?
+
+→ Characters ki total quantity.
+
+4. Template literal ka example do.
+
+→
+
+let name = "Sumit";
+console.log(`Hello ${name}`);
+
+5. Trim ka use kya hai?
+
+→ Extra spaces hatata hai.
+
+📌 Kya aapko String ke long questions, output questions, ya assignment type questions bhi chahiye?
+You said:
+ha
+ChatGPT said:
+
+Great! Yaha STRING ke Long Questions, Output Questions, Assignment Questions, Viva++ sab de raha hoon — exam ke liye full package 👇
+
+📘 LONG QUESTIONS (5 & 10 Marks)
+Q1. Explain JavaScript strings with features, types and examples.
+
+Answer (Exam Ready):
+JavaScript me string ek primitive data type hai jo characters ke sequence ko store karta hai. String ko single quotes (' '), double quotes (" ") aur backticks (`) me likha jata hai.
+Strings immutable hoti hain, yaani string modify nahi hoti, balki new string create hoti hai.
+
+Features:
+
+Characters ka sequence
+
+Immutable
+
+Length property available
+
+Many built-in methods
+
+Template literals support variables
+
+Example:
+
+let name = "Sumit";
+let message = `Hello ${name}`;
+
+Q2. Describe any 10 string methods with example.
+
+Answer (Short Notes):
+
+Method	Use	Example
+length	count chars	"Hello".length
+toUpperCase()	uppercase	"sumit".toUpperCase()
+toLowerCase()	lowercase	"HELLO".toLowerCase()
+trim()	spaces remove	" hello ".trim()
+slice(a,b)	substring	"JavaScript".slice(0,4)
+substring(a,b)	substring	"Hello".substring(1,4)
+replace()	text replace	"bad".replace("bad","good")
+includes()	search	"hello".includes("he")
+charAt()	char return	"abc".charAt(1)
+split()	array me convert	"a,b,c".split(",")
+Q3. What are template literals? Explain with examples.
+
+Template literals backtick (`) me likhi strings hoti hain jisme variable aur multiline string likh sakte hain.
+Example:
+
+let name = "Sumit";
+console.log(`My name is ${name}`);
+
+🧠 OUTPUT QUESTIONS (Most Important for Exam)
+Q1
+console.log("JavaScript".length);
+
+
+Output: 10
+
+Q2
+let str = " Hello ";
+console.log(str.trim().length);
+
+
+Output: 5
+
+Q3
+console.log("Hello World".slice(6));
+
+
+Output: "World"
+
+Q4
+console.log("abc".toUpperCase().toLowerCase());
+
+
+Output: "abc"
+
+Q5
+console.log("apple,banana".split(",")[1]);
+
+
+Output: "banana"
+
+Q6
+let a = "sumit";
+a[0] = "S";
+console.log(a);
+
+
+Output: "sumit" (Because string immutable hoti hai)
+
+Q7
+console.log("programming".includes("gram"));
+
+
+Output: true
+
+📝 ASSIGNMENT QUESTIONS (Practice for Exam)
+Q1. Write a program to check if a string contains the word “JS”.
+Q2. Write a program to reverse a string.
+Q3. Write a program to count vowels in a string.
+Q4. Write a program to replace all spaces with “-”.
+Q5. Write a program to check if a string starts with “A”.
+Q6. Take a sentence and print number of words.
+Q7. Convert first letter of each word to uppercase.
+Q8. Find the longest word in a string.
+
+(If you want, I can give full solutions also.)
+
+🎤 ADVANCED VIVA QUESTIONS (Teacher Favorite)
+1. Why strings are immutable in JavaScript?
+
+Memory optimization + security.
+
+2. What is the difference between slice() and substring()?
+
+slice() negative values accept karta hai
+
+substring() negative values ko 0 banata hai
+
+3. What is string interpolation?
+
+Template literals me ${} use karke variable insert karna.
+
+4. What is the type of string?
+
+Primitive data type.
+
+5. Can we modify specific character of a string?
+
+No. String immutable hoti hai.
