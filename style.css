@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #eef5f9;
+    min-height: 100vh;
+    padding: 40px 20px;
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    background: #087f8c;
+    color: white;
+    text-align: center;
+    padding: 30px;
+}
+
+.header h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+.header p {
+    font-size: 15px;
+}
+
+form {
+    padding: 35px;
+}
+
+h2 {
+    color: #087f8c;
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-group {
+    flex: 1;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ccc;
+    border-radius: 7px;
+    outline: none;
+    font-size: 15px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #087f8c;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.gender {
+    display: flex;
+    gap: 25px;
+}
+
+.gender label {
+    font-weight: normal;
+}
+
+.gender input {
+    width: auto;
+    margin-right: 5px;
+}
+
+small {
+    color: red;
+    display: block;
+    margin-top: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 15px;
+    background: #087f8c;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background: #05656f;
+}
+
+.success {
+    display: none;
+    margin: 0 35px 35px;
+    padding: 25px;
+    background: #e7f8ed;
+    border: 1px solid #42a86b;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.success h2 {
+    color: #218838;
+    margin-bottom: 10px;
+}
+
+.success p {
+    color: #333;
+    line-height: 1.7;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    form {
+        padding: 25px;
+    }
+
+    .gender {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .header h1 {
+        font-size: 26px;
+    }
+}
