@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JavaScript Events Demo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+      line-height: 1.5;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    button {
+      padding: 10px 15px;
+      border: none;
+      background: #007bff;
+      color: white;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>JavaScript All Events Demonstration</h1>
+  <div class="container">
+
+    <div class="card">
+      <h3>Mouse Events</h3>
+      <button onclick="alert('Clicked!')">Click Event</button>
+      <div onmouseover="this.style.background='yellow'" onmouseout="this.style.background='white'" style="padding:15px; margin-top:10px; border:1px solid #ccc;">
+        Hover Over Me
+      </div>
+      <div onmousedown="this.style.background='lightgreen'" onmouseup="this.style.background='white'" style="padding:15px; margin-top:10px; border:1px solid #ccc;">
+        Mouse Down / Up
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Keyboard Events</h3>
+      <input type="text" placeholder="Press any key" onkeydown="console.log('Key Down')" onkeyup="console.log('Key Up')" />
+      <input type="text" placeholder="Key Press" onkeypress="console.log('Key Press Triggered')" style="margin-top:10px;" />
+    </div>
+
+    <div class="card">
+      <h3>Form Events</h3>
+      <input type="text" placeholder="Focus & Blur Event" onfocus="this.style.borderColor='blue'" onblur="this.style.borderColor='gray'" />
+      <select onchange="alert('Value Changed!')" style="margin-top:10px;">
+        <option>Select Value</option>
+        <option>Option 1</option>
+        <option>Option 2</option>
+      </select>
+    </div>
+
+    <div class="card">
+      <h3>Clipboard Events</h3>
+      <textarea placeholder="Copy, Cut, or Paste here"
+        oncopy="alert('Copied!')"
+        oncut="alert('Cut!')"
+        onpaste="alert('Pasted!')"
+      ></textarea>
+    </div>
+
+    <div class="card">
+      <h3>Window Events</h3>
+      <button onclick="window.resizeTo(500,500)">Resize Window</button>
+      <p>Open console to see scroll event logs.</p>
+      <script>
+        window.onscroll = function() {
+          console.log('Scrolling...');
+        };
+      </script>
+    </div>
+
+    <div class="card">
+      <h3>Drag Events</h3>
+      <div draggable="true" ondragstart="alert('Drag Started!')" style="padding:15px; border:1px solid #000;">Drag Me</div>
+    </div>
+
+    <div class="card">
+      <h3>Media Events</h3>
+      <video width="250" controls onplay="alert('Video Playing')" onpause="alert('Video Paused')">
+        <source src="sample.mp4" type="video/mp4" />
+      </video>
+    </div>
+
+    <div class="card">
+      <h3>Load Events</h3>
+      <img src="https://via.placeholder.com/150" onload="alert('Image Loaded!')" />
+    </div>
+
+  </div>
+</body>
+</html>
