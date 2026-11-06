@@ -1,0 +1,803 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshMart - Grocery Store</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #fbfaf6;
+            color: #17251d;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Top Bar */
+        .topbar {
+            background: #123f2c;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 13px;
+        }
+
+        /* Navbar */
+        header {
+            background: white;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        .navbar {
+            max-width: 1160px;
+            margin: auto;
+            padding: 18px 24px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            color: #176b45;
+        }
+
+        .logo span {
+            color: orange;
+        }
+
+        .location {
+            font-size: 12px;
+            color: gray;
+        }
+
+        .location b {
+            display: block;
+            color: #17251d;
+            font-size: 13px;
+        }
+
+        .search {
+            flex: 1;
+            display: flex;
+            background: #f5f7f3;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .search input {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            outline: none;
+            background: transparent;
+        }
+
+        .search button {
+            padding: 12px 20px;
+            background: #176b45;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .cart {
+            background: #eaf5ee;
+            color: #176b45;
+            padding: 11px 14px;
+            border-radius: 8px;
+        }
+
+        /* Hero Section */
+        .hero-container {
+            max-width: 1160px;
+            margin: 30px auto;
+            padding: 0 24px;
+        }
+
+        .hero {
+            min-height: 350px;
+            border-radius: 20px;
+            background: linear-gradient(
+                105deg,
+                #e8f3e8,
+                #d3e8d4
+            );
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            padding: 55px;
+        }
+
+        .tag {
+            background: white;
+            color: #176b45;
+            padding: 8px 13px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin: 25px 0 15px;
+            line-height: 1.15;
+        }
+
+        .hero h1 span {
+            color: #176b45;
+        }
+
+        .hero p {
+            color: #607267;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        .shop-btn {
+            display: inline-block;
+            margin-top: 25px;
+            background: #176b45;
+            color: white;
+            padding: 14px 22px;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 150px;
+            background: radial-gradient(
+                circle,
+                #c1dfc4,
+                transparent 65%
+            );
+        }
+
+        /* Common Section */
+        .section {
+            max-width: 1160px;
+            margin: 45px auto;
+            padding: 0 24px;
+        }
+
+        .section-heading {
+            margin-bottom: 20px;
+        }
+
+        .section-heading h2 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .section-heading p {
+            color: gray;
+            font-size: 13px;
+        }
+
+        /* Categories */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 15px;
+        }
+
+        .category {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 15px;
+            padding: 20px 10px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px #0001;
+        }
+
+        .category-icon {
+            width: 65px;
+            height: 65px;
+            background: #eaf5ee;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            margin: auto auto 12px;
+            font-size: 32px;
+        }
+
+        .category h3 {
+            font-size: 13px;
+        }
+
+        .category p {
+            font-size: 11px;
+            color: gray;
+            margin-top: 5px;
+        }
+
+        /* Offer Banner */
+        .offer {
+            max-width: 1112px;
+            margin: 40px auto;
+            padding: 22px;
+            background: #fff1dc;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .offer h3 {
+            font-size: 17px;
+        }
+
+        .offer p {
+            color: #80633d;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+
+        .discount {
+            background: orange;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        /* Products */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .product {
+            background: white;
+            border: 1px solid #eee;
+            padding: 13px;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px #0001;
+        }
+
+        .product-image {
+            height: 145px;
+            background: #f5f8f2;
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+            font-size: 75px;
+        }
+
+        .product h3 {
+            font-size: 14px;
+            margin-top: 13px;
+        }
+
+        .weight {
+            font-size: 11px;
+            color: gray;
+            margin-top: 5px;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .price {
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .old-price {
+            color: gray;
+            text-decoration: line-through;
+            font-size: 11px;
+        }
+
+        .add-btn {
+            background: #f5faf6;
+            color: #176b45;
+            border: 1px solid #c9dfd0;
+            padding: 8px 13px;
+            border-radius: 7px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        /* Benefits */
+        .benefits {
+            max-width: 1160px;
+            margin: 45px auto;
+            padding: 0 24px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .benefit {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .benefit-icon {
+            font-size: 28px;
+        }
+
+        .benefit h3 {
+            font-size: 13px;
+        }
+
+        .benefit p {
+            font-size: 11px;
+            color: gray;
+            margin-top: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background: #123f2c;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+            font-size: 12px;
+        }
+
+        footer h2 {
+            margin-bottom: 10px;
+        }
+
+        /* Responsive Design */
+        @media(max-width: 800px) {
+
+            .navbar {
+                flex-wrap: wrap;
+                gap: 15px;
+            }
+
+            .location {
+                display: none;
+            }
+
+            .search {
+                order: 3;
+                flex-basis: 100%;
+            }
+
+            .nav-links {
+                margin-left: auto;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content {
+                padding: 35px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            .hero-image {
+                min-height: 200px;
+            }
+
+            .categories {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .products {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .benefits {
+                grid-template-columns: 1fr;
+            }
+
+            .offer {
+                margin: 30px 20px;
+            }
+        }
+
+        @media(max-width: 420px) {
+
+            .hero-content {
+                padding: 25px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .categories {
+                gap: 8px;
+            }
+
+            .category {
+                padding: 13px 5px;
+            }
+
+            .category-icon {
+                width: 50px;
+                height: 50px;
+                font-size: 25px;
+            }
+
+            .products {
+                gap: 10px;
+            }
+
+            .product-image {
+                height: 110px;
+                font-size: 55px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Top Bar -->
+    <div class="topbar">
+        🥬 Fresh deals every day | Free delivery above ₹499
+    </div>
+
+    <!-- Navbar -->
+    <header>
+        <nav class="navbar">
+
+            <a href="#" class="logo">
+                Fresh<span>Mart.</span>
+            </a>
+
+            <div class="location">
+                Delivering to
+                <b>📍 Bhopal, Madhya Pradesh</b>
+            </div>
+
+            <form class="search" onsubmit="return false">
+                <input
+                    type="search"
+                    placeholder="Search groceries..."
+                >
+                <button type="submit">Search</button>
+            </form>
+
+            <div class="nav-links">
+                <a href="#">Sign In</a>
+                <a href="#" class="cart">🛒 Cart (0)</a>
+            </div>
+
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <div class="hero-container">
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <span class="tag">
+                    FRESHNESS DELIVERED
+                </span>
+
+                <h1>
+                    Good food.<br>
+                    <span>Good mood.</span>
+                </h1>
+
+                <p>
+                    Your neighbourhood grocery store,
+                    now online. Shop fresh fruits,
+                    vegetables and daily essentials
+                    at great prices.
+                </p>
+
+                <a href="#products" class="shop-btn">
+                    Shop Groceries →
+                </a>
+
+            </div>
+
+            <div class="hero-image">
+                🧺
+            </div>
+
+        </section>
+
+    </div>
+
+    <!-- Categories -->
+    <section class="section">
+
+        <div class="section-heading">
+            <h2>Shop by Category</h2>
+            <p>Everything you need in one place.</p>
+        </div>
+
+        <div class="categories">
+
+            <a href="#products" class="category">
+                <div class="category-icon">🥦</div>
+                <h3>Vegetables</h3>
+                <p>Fresh & Green</p>
+            </a>
+
+            <a href="#products" class="category">
+                <div class="category-icon">🍎</div>
+                <h3>Fruits</h3>
+                <p>Seasonal Picks</p>
+            </a>
+
+            <a href="#products" class="category">
+                <div class="category-icon">🥛</div>
+                <h3>Dairy</h3>
+                <p>Daily Essentials</p>
+            </a>
+
+            <a href="#products" class="category">
+                <div class="category-icon">🌾</div>
+                <h3>Atta & Rice</h3>
+                <p>Pantry Staples</p>
+            </a>
+
+            <a href="#products" class="category">
+                <div class="category-icon">🧴</div>
+                <h3>Personal Care</h3>
+                <p>Everyday Care</p>
+            </a>
+
+            <a href="#products" class="category">
+                <div class="category-icon">🍪</div>
+                <h3>Snacks</h3>
+                <p>Tasty Bites</p>
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- Offer Banner -->
+    <div class="offer">
+
+        <div>
+            <h3>🎉 Weekend Grocery Sale</h3>
+            <p>Save more on your everyday favourites!</p>
+        </div>
+
+        <div class="discount">
+            UP TO 30% OFF
+        </div>
+
+    </div>
+
+    <!-- Products -->
+    <section class="section" id="products">
+
+        <div class="section-heading">
+            <h2>Popular Products</h2>
+            <p>Customer favourites, picked for you.</p>
+        </div>
+
+        <div class="products">
+
+            <!-- Product 1 -->
+            <div class="product">
+
+                <div class="product-image">
+                    🍅
+                </div>
+
+                <h3>Fresh Red Tomato</h3>
+
+                <p class="weight">
+                    500 g | Vegetables
+                </p>
+
+                <div class="price-row">
+
+                    <div class="price">
+                        ₹25
+                        <span class="old-price">₹30</span>
+                    </div>
+
+                    <button class="add-btn">
+                        ADD +
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product">
+
+                <div class="product-image">
+                    🍌
+                </div>
+
+                <h3>Fresh Banana</h3>
+
+                <p class="weight">
+                    6 Pieces | Fruits
+                </p>
+
+                <div class="price-row">
+
+                    <div class="price">
+                        ₹45
+                        <span class="old-price">₹50</span>
+                    </div>
+
+                    <button class="add-btn">
+                        ADD +
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product">
+
+                <div class="product-image">
+                    🥛
+                </div>
+
+                <h3>Fresh Cow Milk</h3>
+
+                <p class="weight">
+                    1 Litre | Dairy
+                </p>
+
+                <div class="price-row">
+
+                    <div class="price">
+                        ₹62
+                    </div>
+
+                    <button class="add-btn">
+                        ADD +
+                    </button>
+
+                </div>
+
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product">
+
+                <div class="product-image">
+                    🍚
+                </div>
+
+                <h3>Premium Basmati Rice</h3>
+
+                <p class="weight">
+                    1 Kg | Rice & Grains
+                </p>
+
+                <div class="price-row">
+
+                    <div class="price">
+                        ₹120
+                        <span class="old-price">₹150</span>
+                    </div>
+
+                    <button class="add-btn">
+                        ADD +
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Benefits -->
+    <section class="benefits">
+
+        <div class="benefit">
+
+            <div class="benefit-icon">🚚</div>
+
+            <div>
+                <h3>Quick Delivery</h3>
+                <p>At your doorstep, on time.</p>
+            </div>
+
+        </div>
+
+        <div class="benefit">
+
+            <div class="benefit-icon">🌿</div>
+
+            <div>
+                <h3>Fresh Quality</h3>
+                <p>Carefully selected products.</p>
+            </div>
+
+        </div>
+
+        <div class="benefit">
+
+            <div class="benefit-icon">💳</div>
+
+            <div>
+                <h3>Secure Payments</h3>
+                <p>Simple and safe checkout.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+
+        <h2>FreshMart.</h2>
+
+        <p>
+            Fresh groceries. Fair prices. Happy homes.
+        </p>
+
+        <br>
+
+        <p>
+            © 2026 FreshMart Grocery Store.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+</body>
+</html>
